@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchBar from "./components/SearchBar";
 import WeatherData from "./components/WeatherData";
 import Forecast from "./components/Forecast";
+import Loading from "./components/Loading";
 import "./App.css";
 
 export default function App() {
@@ -72,7 +73,7 @@ export default function App() {
       )}
 
       <main style={{ maxWidth: 980, margin: "18px auto", padding: "0 14px" }}>
-        {loading && <div className="loading">Loading...</div>}
+        {loading && <Loading />}
 
         {!loading && view === "realtime" && (
           <WeatherData data={weatherData} />
