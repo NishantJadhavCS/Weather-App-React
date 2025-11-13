@@ -201,3 +201,64 @@
         padding-right: 6px;
     }
 }
+
+
+/* Mobile touch scrolling & snap for hourly strip */
+/* Add to Forecast.css */
+
+.hourly-strip {
+    overflow-x: auto;
+    /* ensure horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+    /* smooth native momentum on iOS */
+    touch-action: pan-x;
+    /* let horizontal pan gestures work reliably */
+    scroll-snap-type: x mandatory;
+    /* enable snapping to children */
+    overscroll-behavior-x: contain;
+    /* avoid scroll chaining to ancestor */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* Make each hour snap to center (or start if you prefer) */
+.hour-item {
+    scroll-snap-align: center;
+    /* center the item when snapping */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Optional — hide default scrollbar on WebKit while keeping it usable */
+.hourly-strip::-webkit-scrollbar {
+    height: 8px;
+}
+
+.hourly-strip::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.28), rgba(99, 102, 241, 0.12));
+}
+
+/* On coarse-pointer devices (touch) disable heavy hover transforms to avoid blocking swipe */
+@media (pointer: coarse) {
+
+    .hour-item,
+    .hour-item:hover {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Small tweak to increase tap target and spacing on phones */
+@media (max-width: 720px) {
+    .hour-item {
+        padding: 8px 10px;
+        min-width: 64px;
+    }
+
+    .hourly-strip {
+        gap: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}

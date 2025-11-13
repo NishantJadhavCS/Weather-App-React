@@ -342,3 +342,133 @@
         padding: 12px 14px;
     }
 }
+
+/* ==== WeatherData: Responsive fixes for very small screens ==== */
+
+/* ensure flex children can shrink (prevents min-width pushing layout out) */
+@media (max-width: 820px) {
+    .wd-main>* {
+        min-width: 0;
+        /* allow items to shrink inside flex */
+    }
+}
+
+/* stack main columns, reduce font-sizes and image sizes on small screens */
+@media (max-width: 620px) {
+    .wd-main {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* allow temp column to shrink and center */
+    .wd-temp {
+        min-width: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 6px 0;
+    }
+
+    /* smaller, responsive temperature number */
+    .wd-temp-value {
+        font-size: 48px;
+        /* down from 64 */
+        line-height: 1;
+        word-break: normal;
+    }
+
+    /* unit toggle placed beside/below the temp without overflowing */
+    .wd-unit-toggle {
+        margin-top: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* condition block becomes full width and centers its content */
+    .wd-condition {
+        min-width: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+        padding: 6px 0;
+    }
+
+    .wd-condition img {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+    }
+
+    .wd-cond-text {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .wd-stats-small {
+        font-size: 0.875rem;
+    }
+
+    /* details stack vertically to avoid horizontal overflow */
+    .wd-details {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .wd-detail-block {
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* AQI card/padding safe area */
+    .wd-aqi {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* very narrow phones — squeeze a bit more */
+@media (max-width: 420px) {
+    .wd-temp-value {
+        font-size: 40px;
+    }
+
+    .wd-condition img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .wd-cond-text {
+        font-size: 0.95rem;
+    }
+
+    .wd-stats-small {
+        font-size: 0.82rem;
+    }
+
+    .wd-detail-block {
+        padding: 10px;
+    }
+}
+
+/* Extra safety for ultra-narrow displays */
+@media (max-width: 360px) {
+    .wd-temp-value {
+        font-size: 36px;
+    }
+
+    .wd-unit-toggle .unit-btn {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+
+    .wd-cond-text {
+        white-space: normal;
+    }
+}
