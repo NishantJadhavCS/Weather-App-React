@@ -60,3 +60,144 @@
         transform: none !important;
     }
 }
+
+/* === Forecast component — media queries only === */
+
+/* Reduced-motion (already important for accessibility) */
+@media (prefers-reduced-motion: reduce) {
+
+    .forecast-day,
+    .hour-item,
+    .forecast-day img {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Tablet / small desktop — tighten spacing and allow more room for hourly strip */
+@media (max-width: 1024px) {
+    .forecast-day {
+        padding: 12px;
+    }
+
+    .date {
+        min-width: 120px;
+        flex: 0 0 120px;
+    }
+
+    .cond img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .hour-item {
+        min-width: 56px;
+    }
+}
+
+/* Mobile / narrow screens: stack the summary, shrink images, allow hourly strip scrolling */
+@media (max-width: 720px) {
+    .forecast-day {
+        padding: 12px;
+    }
+
+    /* stack the top row vertically so date / cond / uv don't overflow */
+    .day-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .date {
+        flex: 0 0 auto;
+        min-width: 0;
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .cond {
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cond img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .uv {
+        flex: 0 0 auto;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* hourly strip remains horizontally scrollable but with smaller items */
+    .hourly-strip {
+        gap: 8px;
+        padding: 8px 0 4px;
+    }
+
+    .hour-item {
+        min-width: 56px;
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .hour-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .hour-temp {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small phones: tighter layout and stacked content */
+@media (max-width: 420px) {
+    .forecast-component {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .forecast-day {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .date {
+        font-size: 0.9rem;
+    }
+
+    .cond img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cond-text {
+        font-size: 0.95rem;
+    }
+
+    .temps {
+        font-size: 0.85rem;
+        color: rgba(15, 23, 36, 0.65);
+    }
+
+    .hour-item {
+        min-width: 50px;
+        padding: 6px;
+    }
+
+    .hour-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* ensure the hourly strip shows a clear scrollbar gap on tiny screens */
+    .hourly-strip {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}

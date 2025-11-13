@@ -181,3 +181,33 @@
         transform: none !important;
     }
 }
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .search-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .search-form {
+        gap: 10px;
+    }
+}
+
+/* --- Reduced motion support --- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}

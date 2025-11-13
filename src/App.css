@@ -266,3 +266,43 @@ button:focus,
     display: none;
   }
 }
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+
+  .logo,
+  .card,
+  .search-btn,
+  .view-btn {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .search-input {
+    width: 200px;
+  }
+
+  .card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .view-right {
+    display: none;
+  }
+}
