@@ -1,4 +1,6 @@
-/* Loading UI for Weather App - spinner + skeletons */
+/* src/components/Loading.css
+   Helper CSS: spinner, skeleton shapes, shimmer, reduced-motion support.
+*/
 
 .loading-wrap {
     max-width: 980px;
@@ -10,6 +12,7 @@
     padding: 8px;
 }
 
+/* top row */
 .loader-top {
     display: flex;
     align-items: center;
@@ -67,7 +70,7 @@
     padding: 12px;
 }
 
-/* shimmer effect */
+/* shimmer effect overlay */
 .skeleton-card::after {
     content: "";
     position: absolute;
