@@ -212,7 +212,7 @@ export default function WeatherData({ data }) {
                     </div>
 
                     <div className="aqi-note text-sm text-slate-600 mt-3">
-                        Note: pollutant units are provided by the API and shown as-is. Use these values to show color-coded warnings or guidance.
+                        Note: pollutant units are provided by the API and shown as-is.
                     </div>
                 </div>
             )}
